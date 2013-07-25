@@ -1,0 +1,24 @@
+<div class="container">
+  <h1>Update note</h1>
+  <% unless @errors %>
+    <%= erb :_updated %>
+  <% else %>
+    <h2>Got fucked</h2>
+  <%end%>
+  <form action="/note/edit" method="post">
+    <label for="note">Title:</label> 
+    <br>
+    <input type="hidden" name="_method" value="put">
+    <input type="hidden" name="note[id]" value="<%= @note.id %>">
+    <input type="text" name="note[title]" value="<%= @note.title %>">
+    <br>
+    <br>
+    <label for="note">Note:</label>
+    <br>
+    <br>
+    <textarea  rows="10" cols="30" name="note[body]"><%= @note.body %></textarea>
+    <br>
+    <br>
+    <input type="submit" value="Update note">
+  </form>
+</div> 

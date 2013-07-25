@@ -1,0 +1,21 @@
+<div class="user_dashboard_container">
+    <h1>Welcome <%= user_name %>!</h1>
+    <div class="user">
+      <p></p>
+      <form action="/logout" method="get">
+        <input type="submit" value="Sign Out">
+      </form>      
+    <div>
+
+    <div class="decks">
+      <% @decks.each do |deck| %>
+      <p>Deck Name: <%= deck.name %></p>
+        <form action='/start_round' method="post">
+          <input type="hidden" value="<%= deck.id %>" name="id"> 
+          <input type="submit" value="Play!">
+          <br>
+        </form>
+        <%end%>
+    </div>
+
+</div>

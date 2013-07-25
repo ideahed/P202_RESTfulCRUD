@@ -1,0 +1,17 @@
+<div class="container">
+  <h1>Welcome to My Notes</h1>  
+  <ul>
+    <% @notes.each do |note| %>
+    <h2><a href ="/notes/<%= note.id %>"><%= note.title %></a></h2>
+      <p><%= note.body %></p>
+      <p>created on <%= note.created_at.to_date %></p>
+
+      <a href="/note/<%= note.id %>/show">Edit Note</a>
+      <form action="/note/<%= note.id %>/delete" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <input class="button" type="submit" value="Delete Note">
+    </form>
+    <% end %>
+  </ul>
+</div>  
+
